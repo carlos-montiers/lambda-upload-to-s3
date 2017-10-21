@@ -1,0 +1,23 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+
+service: carlos-lambda-s3 # NOTE: update this with your service name
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+# you can define service wide environment variables here
+  environment:
+# NOTE: update this with the credentials of IAM user
+    S3_ACCESS_KEY: AAAAJJJJEEEENNNNSSSS
+    S3_SECRET_KEY: BBFFKKLLaaEEFFvv44WWZZuull66llTT11zzKK9/
+
+functions:
+  hello:
+    handler: handler.main
+    events:
+      - http:
+          path: /upload-to-s3
+          method: get
